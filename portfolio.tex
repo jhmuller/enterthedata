@@ -1,0 +1,213 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {./images/} } % Declare image search paths
+
+
+% Theme and color (optional)
+\usetheme{Madrid}
+%\usetheme{Berlin}
+\usecolortheme{default}
+
+\title{AI and Data Science Consulting}
+\author{John H. Muller}
+% \date{\today}
+
+\begin{document}
+\newcommand{\intro}{Introduction}
+\newcommand{\businessProblems}{Business Problems and Solutions}
+\newcommand{\classify}{Classifying Test}
+\newcommand{\forecasting}{Forecasting Time Series}
+\newcommand{\recommendations}{Recommendations}
+\newcommand{\genai}{Generative AI}
+\newcommand{\conclusion}{Conclusion and next steps}
+
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\setcounter{figure}{0}
+
+% Title page
+\begin{frame}
+  \titlepage
+  \begin{center}
+    \includegraphics[width=0.5\textwidth, height=1.5in]{enter1.jpg} %
+	\end{center}
+\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+\section{\intro}
+\subsection{About Me}
+\begin{frame}
+\frametitle{\intro}
+\framesubtitle{About Me}
+\begin{center}
+    \includegraphics[width=0.5in, height=0.5in]{enter1.jpg} %
+\end{center}
+
+  \begin{itemize}
+    \item Computer Scientist (PhD), data scientist and finance quant,
+    \item Over 15 years of experience in industry
+    \begin{itemize}
+    \item Financial Services
+    \item Quantitative Investing
+    \item Retail
+    \item Image and video compression
+    \end{itemize}
+    
+    \item Passion for making my work matter.
+
+  \end{itemize}
+\end{frame}
+
+\subsection{Skills, Experience, and Tools}
+\begin{frame}
+\frametitle{\intro}
+\framesubtitle{Skills, Experience and Tools}
+
+  \begin{itemize}
+  \item Computer Science: algorithms and data structures
+    \item Data Science 
+      \begin{itemize}
+    		\item Supervised learning, clustering, regression, tree based 				methods
+
+       \item Neural Networks, Deep Learning and Generative AI
+      \end{itemize}
+    \item Coding: Python and the python ecosystem
+       \begin{itemize}
+          \item pandas, numpy, scikit-learn, pytorch ...
+         \end{itemize}
+    \item SQL
+    \item LangChain, Langgraph, CrewAI, Hugging Face 
+    
+     \end{itemize}
+\end{frame}
+
+
+
+\section{\businessProblems}
+\subsection{\classify}
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{Classification}
+  What: Recognize "depression related" posts on Reddit.
+
+   \begin{figure}[h!]
+    \begin{center}
+    \includegraphics[width=3in, height=0.8in]{textExamples.png} %
+	\end{center}
+	\caption{Example text from training and validation sets}
+	\label{fig:textExample}
+	\end{figure}
+	
+
+	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=3in, height=.8in]{textClassifyModel.png} %
+	\end{center}
+		\caption{Four layer NN Model}
+		\label{fig:NNModel}
+	\end{figure}
+	
+
+\end{frame}
+
+\subsection{\classify}
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{Classification}
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=3in, height=2.5in]{textClassifyPerf.png} %
+	\end{center}
+		\caption{Training diagnostics}
+		\label{fig:training}
+	\end{figure}
+
+	
+\end{frame}
+
+
+\subsection{\forecasting}
+\begin{frame}
+\frametitle{\businessProblems}
+\framesubtitle{\forecasting}
+
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2.5in]{payemsEasy.png} %
+	\end{center}
+		\caption{NonFarm Payroll level, 2010 - 2020}
+		\label{fig:payemsEasy}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\businessProblems}
+\framesubtitle{\forecasting}
+
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2.5in]{payemsHard.png} %
+	\end{center}
+		\caption{NonFarm Payroll level, 2008 - 2023}		\label{fig:payemsHard}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\businessProblems}
+\framesubtitle{\forecasting}
+
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=3in]{payemsChange.png} %
+	\end{center}
+		\caption{NonFarm Payroll, changes}		\label{fig:payemsHard}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\businessProblems}
+\framesubtitle{\forecasting}
+
+What: forecast the next month's change in non-farm payroll
+How: regress this month change on 
+\begin{itemize}
+\item last 12 months of changes (monthly)
+\item JOLTS (Job Offering and Layoffs} (monthly)
+\item weekly unemployment claims (weekly)
+\item ADP payroll changes (monthly)
+\item University of Michigan consumer sentiment survey (monthly)
+\item Google Trends for phrases like "unemployment", "Jobs" (hourly)
+\end{itemize}
+\end{frame}
+
+
+
+\subsection{\recommendations}
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{\recommendations}
+\end{frame}
+
+
+
+
+\subsection{\genai}
+\begin{frame}
+\frametitle{\businessProblems}
+  \framesubtitle{\genai}
+\end{frame}
+
+
+
+\section{\conclusion}
+\begin{frame}
+  \frametitle{\conclusion}
+  Thank you!
+\end{frame}
+\end{document}
+
