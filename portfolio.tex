@@ -3,6 +3,21 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} } % Declare image search paths
 
+\usepackage{listings}
+\usepackage{xcolor} % For colors
+
+\lstset{
+    language=Python,
+    backgroundcolor=\color{lightgray!20},
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{red!70!black},
+    showstringspaces=false,
+    numberstyle=\tiny\color{gray},
+    numbers=left,
+    breaklines=true,
+    tabsize=4,
+}
 
 % Theme and color (optional)
 \usetheme{Madrid}
@@ -98,105 +113,92 @@
 \subsection{\classify}
 \begin{frame}
   \frametitle{\businessProblems}
-  \framesubtitle{Classification}
-  What: Recognize "depression related" posts on Reddit.
-  
-  How: Use a NN to \emph{embed} posts and classify based on distance to prototypical embeddings.  
-  Similar to \emph{Nearest Neighbor} classification.
+  \framesubtitle{\classify}
+\textbf{What}: Compare 3 methods of classifying 
+on a medical dataset.
 
-   \begin{figure}[h!]
-    \begin{center}
-    \includegraphics[width=3in, height=1in]{textExamples.png} %
-	\end{center}
-	\caption{Example text from training and validation sets}
-	\label{fig:textExample}
-	\end{figure}
+For details on the dataset see Kaggle
+https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
 
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{\classify}
+Variables
+{\scriptsize
+\begin{enumerate}
+\item id: unique identifier
+\item gender: "Male", "Female" or "Other"
+\item  age: age of the patient
+\item  hypertension: 0 if the patient doesn't have hypertension, 1 if the patient has hypertension
+\item heart\_disease: 0 if the patient doesn't have any heart diseases, 1 if the patient has a heart disease
+\item ever\_married: "No" or "Yes"
+\item work\_type: "children", "Govt\_jov", "Never\_worked", "Private" or "Self-employed"
+\item Residence\_type: "Rural" or "Urban"
+\item  avg\_glucose\_level: average glucose level in blood
+\item  bmi: body mass index
+\item smoking\_status: "formerly smoked", "never smoked", "smokes" or "Unknown"*
+\item stroke: 1 if the patient had a stroke or 0 if not
+\end{enumerate} }
 \end{frame}
 
 %----------------
 \begin{frame}
   \frametitle{\businessProblems}
   \framesubtitle{\classify}
- Examples showing embeddings in 2-D
-
-	   \begin{figure}[h!]
-	  \begin{center}
-    \includegraphics[width=3in, height=.8in]{textClassifyModel.png} %
-	\end{center}
-		\caption{Four layer NN Model}
-		\label{fig:NNModel}
-	\end{figure}
+\begin{itemize}
+\item logistic regression
+\item gradient boosting
+\item random forests
+\end{itemize}
 \end{frame}
 %----------------
-\begin{frame}
-  \frametitle{\businessProblems}
-  \framesubtitle{\classify}
- 
-
-	   \begin{figure}[h!]
-	  \begin{center}
-    \includegraphics[width=3in, height=.8in]{textClassifyModel.png} %
-	\end{center}
-		\caption{Four layer NN Model}
-		\label{fig:NNModel}
-	\end{figure}
-\end{frame}
-
 
 %----------------
 \begin{frame}
   \frametitle{\businessProblems}
   \framesubtitle{\classify}
  
-How well does it work?  Is it \textbf{useful}
+Accuracy and loss on train, validation and test datasets. \
+Loss is binary cross-entropy loss.
 
- 
-Note that the bar for \textbf{useful}?
-is dependent on the application.
-E.g. nuclear power vs customer recommendations.
-give accuracy or error numbers.
-\end{frame}
-
-%----------------
-\begin{frame}
-  \frametitle{\businessProblems}
-  \framesubtitle{\classify}
-  What: Classify images, e.g. recognize the "type" of image. 
- \vspace{0.1in}
-  
  	   \begin{figure}[h!]
 	  \begin{center}
-    \includegraphics[width=2.5in, height=2.5in]{image_classify_1.png} %
+    \includegraphics[width=2.5in, height=.8in]{logistic.png} %
 	\end{center}
-		\caption{Daisy or Sunflower}
-		\label{fig}
+		\caption{Logistic Regression}
+		\label{fig:logisic}
 	\end{figure}
-\end{frame}
-%----------------
-\begin{frame}
-  \frametitle{\businessProblems}
-  \framesubtitle{\classify}
-  
-  How: multi-layer convolutional NN.
-  
- 	   \begin{figure}[h!]	
-		  \begin{center}
-    \includegraphics[width=3in, height=2in]{image_classify_2.png} %
-	\end{center}
-		\caption{Keras model}
-		\label{fig:the model}
-	\end{figure}
-\end{frame}
-%----------------
-\begin{frame}
-  \frametitle{\businessProblems}
-  \framesubtitle{\classify}
-How well does it work?  Is it \textbf{useful}?
 
-Give example of accuracy.
-Also, maybe show some example misclassification
+
+	 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=2.5in, height=.8in]{randomForest.png} %
+	\end{center}
+		\caption{RandomForest}
+		\label{fig:randomForest}
+	\end{figure}
+
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{\classify}
+		 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=2.5in, height=.8in]{gradientBoosting.png} %
+	\end{center}
+		\caption{Gradient Boosting}
+		\label{fig:logisic}
+	\end{figure}
+
+\end{frame}
+%----------------
+
+
 
 
 %----------------
@@ -250,10 +252,10 @@ Changes in the level look less predictable.
 \frametitle{\businessProblems}
 \framesubtitle{\forecast}
 
-What: forecast the next month's change in non-farm payroll.
+\textbf{What}: forecast the next month's change in non-farm payroll.
 
 How: regress the monthly change on 
-\begin{itemize}
+\begin{enumerate}
 	\item One or more lagged values.
 	\item  Unemployment rate.
 	\item Civilian Labor force.
@@ -264,7 +266,35 @@ How: regress the monthly change on
 		\item ADP payroll changes (monthly)
 		\item Google trend values for "job", "layoff", ... (hourly)
 		\end{itemize}
-\end{itemize}
+\end{enumerate}
+
+I will start with the first 3 above.
+\end{frame}
+
+%----------------
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{\forecast}
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{4vars_level.png} %
+	\end{center}
+		\caption{target and input variables, level}		\label{fig:payemsHard}
+	\end{figure}
+
+\end{frame}
+
+%----------------
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{\forecast}
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{4vars_change.png} %
+	\end{center}
+		\caption{target and input variables, changes}		\label{fig:payemsHard}
+	\end{figure}
+
 \end{frame}
 
 %----------------
@@ -272,12 +302,18 @@ How: regress the monthly change on
   \frametitle{\businessProblems}
   \framesubtitle{\forecast}
 How well does it work?  Is it \textbf{useful}?
-
-Useful if it can reliably predict whether the number will beat expectations.
-
-show plot of actual vs. predicted
-\end{frame}
-
+See the true vs. predicted values below.
+Traders often react to whether the number beat the expected number.  We can use 200 as a proxy for expectation, so we accurately predicted above or below about half the months.
+	 \vspace{-.1in}
+  \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=1.7in]{linear.png} %
+	\end{center}
+		\caption{results using a linear model}		\label{fig:payemsHard}
+	\end{figure}
+	
+	\end{frame}
+		
 
 %----------------
 
@@ -293,18 +329,73 @@ show plot of actual vs. predicted
   
 \end{frame}
 
+
 %----------------
 
+\begin{frame}[fragile]
+  \frametitle{\businessProblems}
+  \framesubtitle{\recommend}
+  Pytorch model
+  {\scriptsize
+  \begin{lstlisting}
+class MF(nn.Module):
+    def __init__(self, n_users, n_movies, emb_size=100):
+        super(MF, self).__init__()
+        self.n_users = n_users
+        self.n_movies = n_movies
+        self.user_emb = nn.Embedding(n_users, emb_size)
+        self.movie_emb = nn.Embedding(n_movies, emb_size)
+        
+        # initializing the matrices with a positive number 
+        # supposed to help generally will yield better results
+        self.user_emb.weight.data.uniform_(0, 0.5)
+        self.movie_emb.weight.data.uniform_(0, 0.5)
+    
+    def forward(self, users, movies):
+        m = self.movie_emb(movies)
+        u = self.user_emb(users)
+        return (u * m).sum(1)  # taking the dot product
+  \end{lstlisting}}
+\end{frame}
+
+%----------------
+
+\subsection{\recommend}
 \begin{frame}
   \frametitle{\businessProblems}
   \framesubtitle{\recommend}
-Simple explanation of the model.
-
-Back to the plot explaining embedding.
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{train_loss.png} %
+	\end{center}
+		\caption{Interface to gather 5 basic facts}		\label{fig:complaintInput}
+	\end{figure}  
   
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{val_loss.png} %
+	\end{center}
+		\caption{Interface to gather 5 basic facts}		\label{fig:complaintInput}
+	\end{figure}   
+  
+  Test error was 1.23 with 64 dimensional embeddings
 \end{frame}
 
-
+%------------------------------
+\subsection{\recommend}
+\begin{frame}
+  \frametitle{\businessProblems}
+  \framesubtitle{\recommend}
+  
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{val_loss.png} %
+	\end{center}
+		\caption{Interface to gather 5 basic facts}		\label{fig:complaintInput}
+	\end{figure}   
+  
+  Test error was 1.23 with 64 dimensional embeddings
+\end{frame}
 %----------------
 
 \subsection{\genai}
@@ -314,9 +405,62 @@ Back to the plot explaining embedding.
   \framesubtitle{\genai}
   
     What:  Given a minimal set of \emph{facts}, 
-  generate a narrative or story about the facts.
+  generate a narrative or story based on the facts.
   
 \end{frame}
+
+
+
+%----------------
+
+
+\begin{frame}
+\frametitle{\businessProblems}
+  \framesubtitle{\genai}
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{complaint_input.png} %
+	\end{center}
+		\caption{Interface to gather 5 basic facts}		\label{fig:complaintInput}
+	\end{figure}  
+  
+  
+\end{frame}
+
+
+%----------------
+
+
+\begin{frame}
+\frametitle{\businessProblems}
+  \framesubtitle{\genai}
+  
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{complaint_output_polite.png} %
+	\end{center}
+		\caption{resulting "polite" letter}		\label{fig:}
+	\end{figure}  
+  
+  
+\end{frame}
+%----------------
+
+
+\begin{frame}
+\frametitle{\businessProblems}
+  \framesubtitle{\genai}
+ 	   \begin{figure}[h!]
+	  \begin{center}
+    \includegraphics[width=4in, height=2in]{complaint_output_livid.png} %
+	\end{center}
+		\caption{resulting "livid" letter}		\label{}
+	\end{figure}  
+  
+  
+\end{frame}
+
+%----------------
 
 %----------------
 
@@ -325,8 +469,20 @@ Back to the plot explaining embedding.
 \frametitle{\businessProblems}
   \framesubtitle{\genai}
   
-  What:  Given a minimal set of \emph{facts}, 
-  generate a narrative or story about the facts.
+  \textbf{What}: Condense a lengthy passage of several pages down to several paragraphs.
+  Click the link below for a demo.
+  
+    \href{https://huggingface.co/spaces/jmuller/summarize}{\beamergotobutton{Link}}
+    
+    
+  Please note a few things:
+  \begin{itemize}
+  \item You will probably have to restart the app
+  \item Be patient, I am using limited processing 
+  \end{itemize}
+
+  
+  
 \end{frame}
 
 %----------------
@@ -341,8 +497,6 @@ Next steps?
 \end{frame}
 
 %----------------
-
-\section{\conclusion}
 \begin{frame}
   \frametitle{\conclusion}
   \begin{center}
